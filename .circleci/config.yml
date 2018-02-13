@@ -24,8 +24,8 @@ jobs:
           name: Build Artifacts
           command: ./gradlew clean build
       - store_artifacts:
-          path: app/build/outputs/apk/debug
-          destination: debug
+          path: app/build/outputs/apk
+          destination: apk
 
   test:
     working_directory: ~/code

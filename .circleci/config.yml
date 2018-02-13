@@ -66,8 +66,8 @@ jobs:
 
 workflows:
   version: 3
-  build_test_and_upload:
-    jobs:
-      - "build"
-      - "test"
-      - "upload_artifact"
+   build:
+      jobs:
+        - "build"
+        - "test"
+        - "upload_artifact"

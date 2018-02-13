@@ -1,6 +1,6 @@
 version: 3
 jobs:
-  "clean_build":
+  build:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-25-alpha
@@ -24,7 +24,7 @@ jobs:
           name: Build Artifacts
           command: ./gradlew clean build
 
-  "test":
+  test:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-25-alpha
@@ -48,7 +48,7 @@ jobs:
           name: Run Tests
           command: ./gradlew lint test
 
-  "upload_artifact":
+  deploy:
     working_directory: ~/code
         docker:
           - image: circleci/android:api-25-alpha
@@ -66,8 +66,8 @@ jobs:
 
 workflows:
   version: 3
-  build:
+  build-test-and-deploy:
       jobs:
-        - "clean_build"
-        - "test"
-        - "upload_artifact"
+        - build
+        - test
+        - upload_artifact

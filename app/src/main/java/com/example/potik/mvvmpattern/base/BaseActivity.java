@@ -1,12 +1,15 @@
 package com.example.potik.mvvmpattern.base;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 
+@SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity implements LifecycleRegistryOwner {
 
     LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
@@ -38,6 +41,7 @@ public class BaseActivity extends AppCompatActivity implements LifecycleRegistry
 
 
 
+    @NonNull
     @Override
     public LifecycleRegistry getLifecycle() {
         return lifecycleRegistry;
